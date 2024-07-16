@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class UserController {
 
     @GetMapping("/details")
-    public String details(Model model){
+    public String details(Model model){//Para modelo vista controlador
         model.addAttribute("title", "Hola mundo");
         model.addAttribute("name", "Alejandra");
         model.addAttribute("lastname", "Araya Díaz");

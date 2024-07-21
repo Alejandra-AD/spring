@@ -17,7 +17,8 @@ public class UserRestController {
     public String details2(){
 
         Map< String, Object> jsonBody = new HashMap<>();
-        jsonBody.put("nombre", "Rocco");
+        jsonBody.put("name", "Rocco");
+        jsonBody.put("lastname","Pug");
 
         return "details2";
 

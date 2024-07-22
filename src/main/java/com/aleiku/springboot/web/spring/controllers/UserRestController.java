@@ -4,24 +4,28 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import com.aleiku.springboot.web.spring.dto.UserDTO;
+import com.aleiku.springboot.web.spring.models.User;
+
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 
 @RestController
+@RequestMapping("/api")
 public class UserRestController {
 
-    @GetMapping("/details2")
-    public String details2(){
+    User user = new User("Ale", "Araya");
 
-        Map< String, Object> jsonBody = new HashMap<>();
-        jsonBody.put("name", "Rocco");
-        jsonBody.put("lastname","Pug");
 
-        return "details2";
+    @GetMapping("/details")
+    public UserDTO details2(){
 
+        UserDTO userDTO = new UserDTO(user.getName(),user.getLastname());
+        System.out.println(userDTO);
+        return userDTO;
     }
 
 }

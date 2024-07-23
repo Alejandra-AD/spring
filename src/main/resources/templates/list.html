@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text = "title">Document</title>
+</head>
+<body>
+    <h1 th:title ="${title}" th:text = "${title}"></h1>
+    <div th:if = "${users.isEmpty()}" th:text = "'No hay usuarios registrados'"></div>
+    <div th:if="${users}">
+        <ul>
+            <!-- <li th:if = ${users} th:text = ${users}></li> -->
+             <li th:each = "user: ${users}" th:text = "${user.name}"></li>
+        </ul>
+    </div>
+</body>
+</html> 

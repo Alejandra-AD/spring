@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/api")
 public class UserRestController {
 
-    User user = new User("Ale", "Araya");
+    User user = new User("Ale", "Araya",null);
 
 
     @GetMapping("/details")
     public UserDTO details2(){
 
-        UserDTO userDTO = new UserDTO(user.getName(),user.getLastname());
+        UserDTO userDTO = new UserDTO(user.getName(),user.getLastname(),user.getEmail());
         System.out.println(userDTO);
         return userDTO;
     }

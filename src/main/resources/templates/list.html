@@ -7,12 +7,34 @@
 </head>
 <body>
     <h1 th:title ="${title}" th:text = "${title}"></h1>
+
     <div th:if = "${users.isEmpty()}" th:text = "'No hay usuarios registrados'"></div>
-    <div th:if="${users}">
+
+    <div class = "lista" th:if="${users}">
         <ul>
             <!-- <li th:if = ${users} th:text = ${users}></li> -->
-             <li th:each = "user: ${users}" th:text = "${user.name}"></li>
+             <li th:each = "user: ${users}" th:text = "${'Nombre: ' + user.name + ' ' + user.lastname + ', ' + 'Correo: ' + user.email}" ></li>
         </ul>
+    </div>
+
+    <div class = "tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.lastname}"></td>
+                    <td th:text="${user.email}"></td>
+                </tr>
+            </tbody>
+        </table>
+        
     </div>
 </body>
 </html> 

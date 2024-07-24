@@ -8,7 +8,7 @@
 <body>
     <h1 th:title ="${title}" th:text = "${title}"></h1>
 
-    <div th:if = "${users.isEmpty()}" th:text = "'No hay usuarios registrados'"></div>
+    <div th:if = "${users.isEmpty()}" th:text = "${'No hay usuarios registrados'}"></div>
 
     <div class = "lista" th:if="${users}">
         <ul>

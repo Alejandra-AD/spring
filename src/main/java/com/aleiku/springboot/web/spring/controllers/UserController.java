@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.aleiku.springboot.web.spring.dto.UserDTO;
 import com.aleiku.springboot.web.spring.models.User;
@@ -28,25 +29,22 @@ public class UserController {
 
 
     @GetMapping("/list")
-    public String listaUsuarios(ModelMap model){
+    public String userList(ModelMap model){
 
         // List<User> users = new ArrayList<>(); //creando un lista vacia
-        List <User> users = Arrays.asList(
-            new User("Ella", "Purnell", "email1@email.com"),
-            new User("Gigi", "Hadid", "email2@email.com"),
-            new User("Elsa", "De arendelle", "email3@email.com"));
-
-        // users.add(new User("Ella", "Purnell", "email1@email.com"));
-        // users.add(new User("Gigi", "Hadid", "email2@email.com"));
-        // users.add(new User("Elsa", "De arendelle", "email3@email.com"));
-
-        model.addAttribute("users",users);
+        
         model.addAttribute("title", "Lista de usuarios");
 
         return "list";//se devuelve el nombre de la vista
 
+    }
 
-
+    @ModelAttribute("users")
+    public List<User> usersListModel(){
+        return Arrays.asList(
+            new User("Ella", "Purnell", "email1@email.com"),
+            new User("Gigi", "Hadid", "email2@email.com"),
+            new User("Elsa", "De arendelle", "email3@email.com"));
     }
 
 }

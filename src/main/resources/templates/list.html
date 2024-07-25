@@ -10,14 +10,14 @@
 
     <div th:if = "${users.isEmpty()}" th:text = "${'No hay usuarios registrados'}"></div>
 
-    <div class = "lista" th:if="${users}">
+    <div class = "lista" th:if="${!(users.isEmpty())}">
         <ul>
             <!-- <li th:if = ${users} th:text = ${users}></li> -->
              <li th:each = "user: ${users}" th:text = "${'Nombre: ' + user.name + ' ' + user.lastname + ', ' + 'Correo: ' + user.email}" ></li>
         </ul>
     </div>
 
-    <div class = "tabla">
+    <div class = "tabla" th:if = "${!(users.isEmpty())}">
         <table>
             <thead>
                 <tr>
